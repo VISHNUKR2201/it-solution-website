@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Projects - Stackly</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid var(--light);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+        
+        .project-detail-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+        
+        .project-detail-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .project-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .meta-item i {
+            color: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="../../index.html" class="logo">Stack<span>ly</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../about/company-overview.html">About</a></li>
+                    <li><a href="../services/it-consulting.html">Services</a></li>
+                    <li><a href="recent-projects.html">Projects</a></li>
+                    <li class="dropdown">
+                        <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../dashboard/dashboard1.html">Dashboard</a></li>
+                            <li><a href="../error/404-home1.html">Login</a></li>
+                            <li><a href="../error/404-home1.html">Signup</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <a href="../dashboard/dashboard1.html" class="btn btn-outline">Dashboard</a>
+                    <a href="../error/404-home1.html" class="btn">Login/Signup</a>
+                </div>
+                
+                <div class="hamburger">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="close-menu">✕</div>
+        <ul class="mobile-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../about/company-overview.html">About</a></li>
+            <li><a href="../services/it-consulting.html">Services</a></li>
+            <li><a href="recent-projects.html">Projects</a></li>
+            <li><a href="../dashboard/dashboard1.html">Dashboard</a></li>
+            <li><a href="../error/404-home1.html">Login/Signup</a></li>
+            <li><a href="../../index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Recent Projects</h1>
+            <p>Explore our latest work and successful implementations</p>
+        </div>
+    </section>
+
+    <!-- Projects Filter -->
+    <section class="section">
+        <div class="container">
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                <button class="filter-btn" data-filter="cloud">Cloud Solutions</button>
+                <button class="filter-btn" data-filter="security">Cybersecurity</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="../../images/project1.jpg" alt="E-commerce Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce Platform</h3>
+                        <p>Custom e-commerce solution with advanced inventory management and payment integration.</p>
+                        <button class="btn btn-outline view-project" data-project="1">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="mobile">
+                    <div class="project-image">
+                        <img src="../../images/project2.jpg" alt="Mobile Banking App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Mobile Banking App</h3>
+                        <p>Secure mobile banking application with biometric authentication and real-time transactions.</p>
+                        <button class="btn btn-outline view-project" data-project="2">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="cloud">
+                    <div class="project-image">
+                        <img src="../../images/project3.jpg" alt="Cloud Migration">
+                    </div>
+                    <div class="project-content">
+                        <h3>Cloud Migration</h3>
+                        <p>Enterprise cloud migration with zero downtime and enhanced security measures.</p>
+                        <button class="btn btn-outline view-project" data-project="3">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="security">
+                    <div class="project-image">
+                        <img src="../../images/project4.jpg" alt="Security Implementation">
+                    </div>
+                    <div class="project-content">
+                        <h3>Security Implementation</h3>
+                        <p>Comprehensive cybersecurity framework for financial institution.</p>
+                        <button class="btn btn-outline view-project" data-project="4">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="../../images/project5.jpg" alt="CRM System">
+                    </div>
+                    <div class="project-content">
+                        <h3>CRM System</h3>
+                        <p>Custom customer relationship management system with AI-powered insights.</p>
+                        <button class="btn btn-outline view-project" data-project="5">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="mobile">
+                    <div class="project-image">
+                        <img src="../../images/project6.jpg" alt="Fitness App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Fitness Tracking App</h3>
+                        <p>Mobile fitness application with wearable integration and social features.</p>
+                        <button class="btn btn-outline view-project" data-project="6">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="project-detail-content">
+                <div class="project-detail-image">
+                    <img src="../../images/project1.jpg" alt="Project Detail" id="modalImage">
+                </div>
+                <div class="project-detail-info">
+                    <h3 id="modalTitle">Project Title</h3>
+                    <p id="modalDescription">Project description will appear here.</p>
+                    
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span id="modalDate">Completion Date</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-tag"></i>
+                            <span id="modalCategory">Category</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-user"></i>
+                            <span id="modalClient">Client</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="modalDuration">Duration</span>
+                        </div>
+                    </div>
+                    
+                    <h4>Technologies Used</h4>
+                    <ul id="modalTechnologies">
+                        <!-- Technologies will be populated by JavaScript -->
+                    </ul>
+                    
+                    <h4>Key Features</h4>
+                    <ul id="modalFeatures">
+                        <!-- Features will be populated by JavaScript -->
+                    </ul>
+                    
+                    <div class="hero-buttons" style="margin-top: 30px;">
+                        <a href="../../index.html#contact" class="btn">Start Similar Project</a>
+                        <a href="case-studies.html" class="btn btn-outline">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="section" style="background: var(--light);">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Client Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Technologies Used</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Project Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Same footer as index.html -->
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Stackly. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+    <script>
+        // Project Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Project Modal
+        const modal = document.getElementById('projectModal');
+        const viewProjectBtns = document.querySelectorAll('.view-project');
+        const closeModal = document.querySelector('.close-modal');
+        
+        // Project data
+        const projects = {
+            1: {
+                title: "E-commerce Platform",
+                description: "A comprehensive e-commerce solution built for a retail client, featuring advanced inventory management, multi-payment gateway integration, and AI-powered product recommendations.",
+                image: "../../images/project1.jpg",
+                date: "March 2023",
+                category: "Web Development",
+                client: "RetailCorp Inc.",
+                duration: "4 months",
+                technologies: ["React", "Node.js", "MongoDB", "Stripe API", "AWS"],
+                features: ["Advanced inventory management", "Multi-payment gateway support", "AI product recommendations", "Real-time analytics dashboard", "Mobile-responsive design"]
+            },
+            2: {
+                title: "Mobile Banking App",
+                description: "Secure mobile banking application with biometric authentication, real-time transaction processing, and comprehensive financial management features.",
+                image: "../../images/project2.jpg",
+                date: "January 2023",
+                category: "Mobile App",
+                client: "FinTech Solutions",
+                duration: "6 months",
+                technologies: ["React Native", "Firebase", "Node.js", "Biometric API", "SSL Encryption"],
+                features: ["Biometric authentication", "Real-time transactions", "Budget tracking", "Bill payments", "Investment portfolio"]
+            },
+            // Add more projects as needed
+        };
+        
+        viewProjectBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const projectId = btn.getAttribute('data-project');
+                const project = projects[projectId];
+                
+                if (project) {
+                    document.getElementById('modalTitle').textContent = project.title;
+                    document.getElementById('modalDescription').textContent = project.description;
+                    document.getElementById('modalImage').src = project.image;
+                    document.getElementById('modalDate').textContent = project.date;
+                    document.getElementById('modalCategory').textContent = project.category;
+                    document.getElementById('modalClient').textContent = project.client;
+                    document.getElementById('modalDuration').textContent = project.duration;
+                    
+                    // Populate technologies
+                    const techList = document.getElementById('modalTechnologies');
+                    techList.innerHTML = '';
+                    project.technologies.forEach(tech => {
+                        const li = document.createElement('li');
+                        li.textContent = tech;
+                        techList.appendChild(li);
+                    });
+                    
+                    // Populate features
+                    const featuresList = document.getElementById('modalFeatures');
+                    featuresList.innerHTML = '';
+                    project.features.forEach(feature => {
+                        const li = document.createElement('li');
+                        li.textContent = feature;
+                        featuresList.appendChild(li);
+                    });
+                    
+                    modal.style.display = 'flex';
+                }
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

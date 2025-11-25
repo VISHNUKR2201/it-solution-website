@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Consulting - Stackly</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-detail {
+            margin-bottom: 80px;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="../../index.html" class="logo">Stack<span>ly</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../about/company-overview.html">About</a></li>
+                    <li><a href="it-consulting.html">Services</a></li>
+                    <li><a href="../projects/recent-projects.html">Projects</a></li>
+                    <li class="dropdown">
+                        <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../dashboard/dashboard1.html">Dashboard</a></li>
+                            <li><a href="../error/404-home1.html">Login</a></li>
+                            <li><a href="../error/404-home1.html">Signup</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <a href="../dashboard/dashboard1.html" class="btn btn-outline">Dashboard</a>
+                    <a href="../error/404-home1.html" class="btn">Login/Signup</a>
+                </div>
+                
+                <div class="hamburger">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="close-menu">✕</div>
+        <ul class="mobile-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../about/company-overview.html">About</a></li>
+            <li><a href="it-consulting.html">Services</a></li>
+            <li><a href="../projects/recent-projects.html">Projects</a></li>
+            <li><a href="../dashboard/dashboard1.html">Dashboard</a></li>
+            <li><a href="../error/404-home1.html">Login/Signup</a></li>
+            <li><a href="../../index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>IT Consulting Services</h1>
+            <p>Strategic technology guidance for business growth</p>
+        </div>
+    </section>
+
+    <!-- Service Detail -->
+    <section class="section service-detail">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Strategic IT Consulting</h2>
+                    <p>Our IT consulting services help businesses align technology with business objectives, optimize operations, and drive digital transformation. We provide expert guidance to help you make informed technology decisions that support your growth and competitive advantage.</p>
+                    
+                    <h3>Our Approach</h3>
+                    <p>We take a holistic approach to IT consulting, considering your business goals, current technology landscape, and future needs. Our consultants work closely with your team to develop customized strategies that deliver measurable results.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="../../index.html#contact" class="btn">Get Consultation</a>
+                        <a href="../projects/case-studies.html" class="btn btn-outline">View Case Studies</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="../../images/it-consulting.jpg" alt="IT Consulting">
+                </div>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Analysis</h3>
+                    <p>We conduct in-depth analysis of your current IT infrastructure and business processes.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Strategy Development</h3>
+                    <p>We create customized IT strategies aligned with your business objectives.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Implementation Planning</h3>
+                    <p>We develop detailed implementation plans with clear milestones and deliverables.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Ongoing Support</h3>
+                    <p>We provide continuous support and optimization to ensure long-term success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section" style="background: var(--light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Benefits</h2>
+                <p>How our IT consulting services add value to your business</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Improved Efficiency</h3>
+                    <p>Streamline operations and reduce costs through optimized technology solutions and processes.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Enhanced Security</h3>
+                    <p>Protect your business from cyber threats with robust security strategies and implementations.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Scalable Solutions</h3>
+                    <p>Build technology infrastructure that grows with your business and adapts to changing needs.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation Focus</h3>
+                    <p>Leverage emerging technologies to gain competitive advantage and drive business innovation.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Cost Optimization</h3>
+                    <p>Maximize ROI through strategic technology investments and efficient resource allocation.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Expert Guidance</h3>
+                    <p>Access experienced IT consultants who understand both technology and business strategy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-content" style="text-align: center;">
+                <h2>Ready to Transform Your IT Strategy?</h2>
+                <p style="max-width: 600px; margin: 0 auto 30px;">Contact us today for a free consultation and discover how our IT consulting services can drive your business forward.</p>
+                <div class="hero-buttons">
+                    <a href="../../index.html#contact" class="btn">Get Started Today</a>
+                    <a href="../about/our-team.html" class="btn btn-outline">Meet Our Consultants</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Same footer as index.html -->
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Stackly. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+</body>
+</html>

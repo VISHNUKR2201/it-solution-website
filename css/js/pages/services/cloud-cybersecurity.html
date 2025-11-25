@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud & Cybersecurity - Stackly</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-detail {
+            margin-bottom: 80px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--secondary);
+            font-size: 2rem;
+        }
+        
+        .security-levels {
+            background: var(--light);
+            padding: 80px 0;
+        }
+        
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .level-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .level-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="../../index.html" class="logo">Stack<span>ly</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../about/company-overview.html">About</a></li>
+                    <li><a href="it-consulting.html">Services</a></li>
+                    <li><a href="../projects/recent-projects.html">Projects</a></li>
+                    <li class="dropdown">
+                        <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../dashboard/dashboard1.html">Dashboard</a></li>
+                            <li><a href="../error/404-home1.html">Login</a></li>
+                            <li><a href="../error/404-home1.html">Signup</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <a href="../dashboard/dashboard1.html" class="btn btn-outline">Dashboard</a>
+                    <a href="../error/404-home1.html" class="btn">Login/Signup</a>
+                </div>
+                
+                <div class="hamburger">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="close-menu">✕</div>
+        <ul class="mobile-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../about/company-overview.html">About</a></li>
+            <li><a href="it-consulting.html">Services</a></li>
+            <li><a href="../projects/recent-projects.html">Projects</a></li>
+            <li><a href="../dashboard/dashboard1.html">Dashboard</a></li>
+            <li><a href="../error/404-home1.html">Login/Signup</a></li>
+            <li><a href="../../index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Cloud & Cybersecurity Solutions</h1>
+            <p>Secure, scalable cloud infrastructure with enterprise-grade protection</p>
+        </div>
+    </section>
+
+    <!-- Service Detail -->
+    <section class="section service-detail">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Comprehensive Cloud & Security Solutions</h2>
+                    <p>Protect your business with our enterprise-grade cloud and cybersecurity services. We provide end-to-end solutions that secure your data, applications, and infrastructure while ensuring optimal performance and scalability.</p>
+                    
+                    <h3>Our Security Approach</h3>
+                    <p>We implement multi-layered security strategies that protect your assets from evolving cyber threats while maintaining compliance with industry regulations and standards.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="../../index.html#contact" class="btn">Get Security Assessment</a>
+                        <a href="../projects/case-studies.html" class="btn btn-outline">View Case Studies</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="../../images/cloud-security.jpg" alt="Cloud Security">
+                </div>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Cloud Migration</h3>
+                    <p>Seamless migration to cloud platforms with minimal downtime and maximum security.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Threat Protection</h3>
+                    <p>Advanced threat detection and prevention systems to safeguard your digital assets.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Data Encryption</h3>
+                    <p>End-to-end encryption for data at rest and in transit across all platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Levels -->
+    <section class="security-levels">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comprehensive Security Services</h2>
+                <p>Multi-layered protection for your digital ecosystem</p>
+            </div>
+            
+            <div class="levels-grid">
+                <div class="level-card">
+                    <div class="level-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Network Security</h3>
+                    <p>Firewalls, intrusion detection, and network monitoring</p>
+                </div>
+                
+                <div class="level-card">
+                    <div class="level-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Identity Management</h3>
+                    <p>Multi-factor authentication and access control systems</p>
+                </div>
+                
+                <div class="level-card">
+                    <div class="level-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Protection</h3>
+                    <p>Encryption, backup solutions, and data loss prevention</p>
+                </div>
+                
+                <div class="level-card">
+                    <div class="level-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Endpoint Security</h3>
+                    <p>Device protection and mobile security solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cloud Services -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cloud Services</h2>
+                <p>Scalable cloud solutions for businesses of all sizes</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3>AWS Solutions</h3>
+                    <p>Complete Amazon Web Services implementation and management</p>
+                    <a href="../../index.html#contact" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <h3>Azure Services</h3>
+                    <p>Microsoft Azure cloud platform deployment and optimization</p>
+                    <a href="../../index.html#contact" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Google Cloud</h3>
+                    <p>Google Cloud Platform solutions for modern applications</p>
+                    <a href="../../index.html#contact" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: var(--light);">
+        <div class="container">
+            <div class="cta-content" style="text-align: center;">
+                <h2>Secure Your Digital Future</h2>
+                <p style="max-width: 600px; margin: 0 auto 30px;">Don't leave your business vulnerable to cyber threats. Let us help you build a secure, scalable cloud infrastructure that protects your assets and supports your growth.</p>
+                <div class="hero-buttons">
+                    <a href="../../index.html#contact" class="btn">Get Security Audit</a>
+                    <a href="../about/our-team.html" class="btn btn-outline">Meet Security Experts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Same footer as index.html -->
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Stackly. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Testimonials - Stackly</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--light);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-top: 5px;
+        }
+        
+        .stats-section {
+            background: var(--light);
+            padding: 80px 0;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            align-items: center;
+            margin-top: 50px;
+        }
+        
+        .client-logo {
+            text-align: center;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            opacity: 1;
+        }
+        
+        .client-logo img {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        
+        .client-logo:hover img {
+            filter: grayscale(0%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="../../index.html" class="logo">Stack<span>ly</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../about/company-overview.html">About</a></li>
+                    <li><a href="../services/it-consulting.html">Services</a></li>
+                    <li><a href="recent-projects.html">Projects</a></li>
+                    <li class="dropdown">
+                        <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../dashboard/dashboard1.html">Dashboard</a></li>
+                            <li><a href="../error/404-home1.html">Login</a></li>
+                            <li><a href="../error/404-home1.html">Signup</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <a href="../dashboard/dashboard1.html" class="btn btn-outline">Dashboard</a>
+                    <a href="../error/404-home1.html" class="btn">Login/Signup</a>
+                </div>
+                
+                <div class="hamburger">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="close-menu">✕</div>
+        <ul class="mobile-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../about/company-overview.html">About</a></li>
+            <li><a href="../services/it-consulting.html">Services</a></li>
+            <li><a href="recent-projects.html">Projects</a></li>
+            <li><a href="../dashboard/dashboard1.html">Dashboard</a></li>
+            <li><a href="../error/404-home1.html">Login/Signup</a></li>
+            <li><a href="../../index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Client Testimonials</h1>
+            <p>What our clients say about working with Stackly</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Stackly transformed our e-commerce platform completely. The new system handles peak traffic seamlessly, and our online sales have increased by 250%. Their team was professional, communicative, and delivered beyond our expectations."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="../../images/client1.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, RetailCorp Inc.</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The cloud migration project was executed flawlessly with zero downtime. Stackly's cybersecurity measures have given us peace of mind, and their ongoing support has been exceptional. They truly understand the financial industry's requirements."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="../../images/client2.jpg" alt="Michael Chen">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>CTO, FinTech Solutions</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Working with Stackly on our mobile healthcare app was a game-changer. They delivered a HIPAA-compliant solution that our patients love. The app has significantly improved patient engagement and streamlined our operations."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="../../images/client3.jpg" alt="Dr. Emily Rodriguez">
+                        </div>
+                        <div class="author-info">
+                            <h4>Dr. Emily Rodriguez</h4>
+                            <p>Medical Director, HealthPlus</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The custom CRM system Stackly built for us has revolutionized our sales process. The AI-powered insights have helped us identify new opportunities and improve customer relationships. Their team was responsive and incorporated all our feedback."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="../../images/client4.jpg" alt="David Thompson">
+                        </div>
+                        <div class="author-info">
+                            <h4>David Thompson</h4>
+                            <p>Sales Director, TechGrowth</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Stackly's IT consulting services helped us develop a comprehensive digital transformation strategy. Their insights were invaluable, and the implementation was smooth and efficient. We've seen significant improvements in operational efficiency."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="../../images/client5.jpg" alt="Lisa Wang">
+                        </div>
+                        <div class="author-info">
+                            <h4>Lisa Wang</h4>
+                            <p>Operations Manager, Global Logistics</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The cybersecurity implementation by Stackly has significantly strengthened our security posture. Their team conducted thorough assessments and implemented robust protection measures. We feel much more secure against cyber threats."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="../../images/client6.jpg" alt="Robert Martinez">
+                        </div>
+                        <div class="author-info">
+                            <h4>Robert Martinez</h4>
+                            <p>Security Officer, SecureBank</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Success Metrics</h2>
+                <p>Measurable results we've delivered for our clients</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Client Satisfaction Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>Successful Projects</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9/5</h3>
+                    <p>Average Client Rating</p>
+                </div>
+                <div class="stat-item">
+                    <h3>95%</h3>
+                    <p>Repeat Business Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Valued Clients</h2>
+                <p>Trusted by industry leaders and growing businesses</p>
+            </div>
+            
+            <div class="clients-grid">
+                <div class="client-logo">
+                    <img src="../../images/client-logo1.png" alt="Client 1">
+                </div>
+                <div class="client-logo">
+                    <img src="../../images/client-logo2.png" alt="Client 2">
+                </div>
+                <div class="client-logo">
+                    <img src="../../images/client-logo3.png" alt="Client 3">
+                </div>
+                <div class="client-logo">
+                    <img src="../../images/client-logo4.png" alt="Client 4">
+                </div>
+                <div class="client-logo">
+                    <img src="../../images/client-logo5.png" alt="Client 5">
+                </div>
+                <div class="client-logo">
+                    <img src="../../images/client-logo6.png" alt="Client 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: var(--light);">
+        <div class="container">
+            <div class="cta-content" style="text-align: center;">
+                <h2>Join Our Satisfied Clients</h2>
+                <p style="max-width: 600px; margin: 0 auto 30px;">Experience the Stackly difference and see why our clients consistently rate us 5 stars.</p>
+                <div class="hero-buttons">
+                    <a href="../../index.html#contact" class="btn">Start Your Project</a>
+                    <a href="case-studies.html" class="btn btn-outline">View Case Studies</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Same footer as index.html -->
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Stackly. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+</body>
+</html>

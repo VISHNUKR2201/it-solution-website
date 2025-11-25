@@ -1,0 +1,57 @@
+/* Mobile Dropdown Styles - Add this to all v2 files after .mobile-links a:hover */
+
+/* Mobile Dropdown Styles */
+.mobile-dropdown {
+    position: relative;
+}
+
+.mobile-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mobile-dropdown-toggle i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.active .mobile-dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: #f8fafc;
+    padding-left: 0;
+    margin: 0;
+}
+
+.mobile-dropdown.active .mobile-dropdown-menu {
+    max-height: 300px;
+    padding: 10px 0;
+}
+
+.mobile-dropdown-menu li {
+    border-bottom: none;
+    margin: 0;
+}
+
+.mobile-dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.mobile-dropdown-menu a:hover {
+    color: #2563eb;
+    background: #e2e8f0;
+    padding-left: 25px;
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - Stackly</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .leadership-team {
+            margin-bottom: 60px;
+        }
+        
+        .department-team {
+            margin-bottom: 60px;
+        }
+        
+        .team-section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .team-section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="../../index.html" class="logo">Stack<span>ly</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="company-overview.html">About</a></li>
+                    <li><a href="../services/it-consulting.html">Services</a></li>
+                    <li><a href="../projects/recent-projects.html">Projects</a></li>
+                    <li class="dropdown">
+                        <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../dashboard/dashboard1.html">Dashboard</a></li>
+                            <li><a href="../error/404-home1.html">Login</a></li>
+                            <li><a href="../error/404-home1.html">Signup</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../index.html#contact">Contact</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <a href="../dashboard/dashboard1.html" class="btn btn-outline">Dashboard</a>
+                    <a href="../error/404-home1.html" class="btn">Login/Signup</a>
+                </div>
+                
+                <div class="hamburger">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="close-menu">✕</div>
+        <ul class="mobile-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="company-overview.html">About</a></li>
+            <li><a href="../services/it-consulting.html">Services</a></li>
+            <li><a href="../projects/recent-projects.html">Projects</a></li>
+            <li><a href="../dashboard/dashboard1.html">Dashboard</a></li>
+            <li><a href="../error/404-home1.html">Login/Signup</a></li>
+            <li><a href="../../index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Meet Our Expert Team</h1>
+            <p>The talented professionals behind Stackly's success</p>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="section leadership-team">
+        <div class="container">
+            <div class="team-section-title">
+                <h2>Leadership Team</h2>
+                <p>Our visionary leaders driving innovation and growth</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="../../images/team1.jpg" alt="John Doe">
+                    </div>
+                    <h3>John Doe</h3>
+                    <p>CEO & Founder</p>
+                    <p class="member-bio">With over 15 years of experience in the tech industry, John leads Stackly with a vision for innovation and excellence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="../../images/team2.jpg" alt="Jane Smith">
+                    </div>
+                    <h3>Jane Smith</h3>
+                    <p>Chief Technology Officer</p>
+                    <p class="member-bio">Jane brings extensive technical expertise and leads our development teams in creating cutting-edge solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="../../images/team3.jpg" alt="Michael Johnson">
+                    </div>
+                    <h3>Michael Johnson</h3>
+                    <p>Chief Operations Officer</p>
+                    <p class="member-bio">Michael ensures our operations run smoothly and efficiently, delivering exceptional service to our clients.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Team -->
+    <section class="section department-team" style="background: var(--light);">
+        <div class="container">
+            <div class="team-section-title">
+                <h2>Development Team</h2>
+                <p>Our talented developers building the future</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="../../images/team4.jpg" alt="Sarah Williams">
+                    </div>
+                    <h3>Sarah Williams</h3>
+                    <p>Lead UI/UX Designer</p>
+                    <p class="member-bio">Sarah creates intuitive and beautiful user experiences that delight our clients and their customers.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="../../images/team5.jpg" alt="David Brown">
+                    </div>
+                    <h3>David Brown</h3>
+                    <p>Senior Full-Stack Developer</p>
+                    <p class="member-bio">David specializes in building robust and scalable applications using the latest technologies.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="../../images/team6.jpg" alt="Emily Chen">
+                    </div>
+                    <h3>Emily Chen</h3>
+                    <p>Mobile App Developer</p>
+                    <p class="member-bio">Emily creates innovative mobile solutions that provide seamless experiences across all devices.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>25+</h3>
+                    <p>Team Members</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Years Combined Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Technologies Mastered</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Client Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Same footer as index.html -->
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Stackly. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+</body>
+</html>

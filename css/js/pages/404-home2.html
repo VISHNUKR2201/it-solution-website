@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Stackly</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --neon-primary: #00ff88;
+            --neon-secondary: #00d4ff;
+            --neon-accent: #ff0080;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .cyber-error {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 0, 128, 0.05) 0%, transparent 50%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-error::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 48%, var(--neon-primary) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, var(--neon-secondary) 50%, transparent 52%);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            animation: gridMove 20s linear infinite;
+        }
+
+        .error-container {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid var(--neon-primary);
+            border-radius: 15px;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 136, 0.3),
+                inset 0 0 30px rgba(0, 255, 136, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .glitch-text {
+            font-size: 8rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            position: relative;
+            text-shadow: 
+                0.05em 0 0 var(--neon-accent),
+                -0.05em -0.025em 0 var(--neon-primary),
+                -0.025em 0.05em 0 var(--neon-secondary);
+            animation: glitch 2s infinite;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            animation: glitch-1 0.5s infinite;
+            color: var(--neon-accent);
+            z-index: -1;
+        }
+
+        .glitch-text::after {
+            animation: glitch-2 0.5s infinite;
+            color: var(--neon-secondary);
+            z-index: -2;
+        }
+
+        .error-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--neon-primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            color: #ccc;
+            max-width: 500px;
+        }
+
+        .cyber-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .cyber-btn {
+            padding: 15px 30px;
+            border: 2px solid var(--neon-primary);
+            background: transparent;
+            color: var(--neon-primary);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cyber-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .cyber-btn:hover::before {
+            left: 100%;
+        }
+
+        .cyber-btn:hover {
+            background: var(--neon-primary);
+            color: var(--dark-bg);
+            box-shadow: 0 0 20px var(--neon-primary);
+            transform: translateY(-2px);
+        }
+
+        .terminal {
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--neon-secondary);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot.red { background: #ff5f57; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #28ca42; }
+
+        .terminal-title {
+            flex: 1;
+            text-align: center;
+            color: var(--neon-secondary);
+            font-weight: 600;
+        }
+
+        .terminal-content {
+            color: var(--neon-primary);
+        }
+
+        .command {
+            margin-bottom: 10px;
+        }
+
+        .prompt {
+            color: var(--neon-secondary);
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes glitch-1 {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes glitch-2 {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(2px, -2px); }
+            40% { transform: translate(2px, 2px); }
+            60% { transform: translate(-2px, -2px); }
+            80% { transform: translate(-2px, 2px); }
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .glitch-text {
+                font-size: 5rem;
+            }
+            
+            .error-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cyber-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cyber-btn {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-error">
+        <div class="error-container">
+            <div class="glitch-text" data-text="404">404</div>
+            
+            <div class="error-subtitle">System Anomaly Detected</div>
+            
+            <div class="error-message">
+                Critical error: Target resource not found in the digital matrix. 
+                The page you're seeking has either been encrypted, relocated, 
+                or never existed in this reality.
+            </div>
+
+            <div class="cyber-buttons">
+                <a href="../../homepage2.html" class="cyber-btn">
+                    <i class="fas fa-home"></i> Return to Base
+                </a>
+                <a href="javascript:history.back()" class="cyber-btn">
+                    <i class="fas fa-arrow-left"></i> Previous Transmission
+                </a>
+                <a href="../../index.html#contact" class="cyber-btn">
+                    <i class="fas fa-life-ring"></i> Request Support
+                </a>
+            </div>
+
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="terminal-title">SYSTEM TERMINAL</div>
+                </div>
+                <div class="terminal-content">
+                    <div class="command">
+                        <span class="prompt">user@stackly:~$</span> locate target_page.html
+                    </div>
+                    <div class="command">
+                        <span class="prompt">system:~$</span> ERROR: File not found in directory tree
+                    </div>
+                    <div class="command">
+                        <span class="prompt">user@stackly:~$</span> scan for alternatives<span class="blink">_</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; font-size: 0.9rem; color: #666;">
+                <p>Navigate to secure sectors:</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 10px;">
+                    <a href="../services/it-consulting.html" style="color: var(--neon-secondary); text-decoration: none;">SERVICES</a>
+                    <a href="../projects/recent-projects.html" style="color: var(--neon-secondary); text-decoration: none;">PROJECTS</a>
+                    <a href="../about/company-overview.html" style="color: var(--neon-secondary); text-decoration: none;">ABOUT</a>
+                    <a href="../../homepage2.html#contact" style="color: var(--neon-secondary); text-decoration: none;">CONTACT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Terminal typing effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const terminal = document.querySelector('.terminal-content');
+            const commands = [
+                "initiate system diagnostic...",
+                "scanning network pathways...",
+                "checking cache memory...",
+                "verifying DNS records...",
+                "ERROR: 404 - Resource allocation failed",
+                "suggest: return to homepage or contact sysadmin"
+            ];
+
+            let currentCommand = 0;
+            let currentChar = 0;
+            let typingSpeed = 50;
+
+            function typeCommand() {
+                if (currentCommand < commands.length) {
+                    if (currentChar < commands[currentCommand].length) {
+                        const prompt = currentChar === 0 ? '<span class="prompt">system:~$</span> ' : '';
+                        terminal.innerHTML += prompt + commands[currentCommand].charAt(currentChar);
+                        currentChar++;
+                        setTimeout(typeCommand, typingSpeed);
+                    } else {
+                        terminal.innerHTML += '<br>';
+                        currentCommand++;
+                        currentChar = 0;
+                        setTimeout(typeCommand, 800);
+                    }
+                } else {
+                    // Add blinking cursor at the end
+                    terminal.innerHTML += '<span class="prompt">system:~$</span> <span class="blink">_</span>';
+                }
+            }
+
+            // Start typing after a delay
+            setTimeout(typeCommand, 1000);
+
+            // Add cyber particles
+            for (let i = 0; i < 20; i++) {
+                createParticle();
+            }
+
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.width = '2px';
+                particle.style.height = Math.random() * 100 + 50 + 'px';
+                particle.style.background = `linear-gradient(transparent, ${Math.random() > 0.5 ? 'var(--neon-primary)' : 'var(--neon-secondary)'}, transparent)`;
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = '-100px';
+                particle.style.opacity = '0.3';
+                particle.style.animation = `fall ${Math.random() * 3 + 2}s linear infinite`;
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(particle);
+            }
+
+            // Add fall animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fall {
+                    0% { transform: translateY(-100px) rotate(0deg); }
+                    100% { transform: translateY(100vh) rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+
+        // Interactive glitch effect on buttons
+        const cyberButtons = document.querySelectorAll('.cyber-btn');
+        cyberButtons.forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.animation = 'glitch 0.3s';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.animation = '';
+            });
+        });
+    </script>
+</body>
+</html>
