@@ -5,16 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stackly - IT Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/mobile-menu.css">
-    <style>
-        @media (max-width: 992px) {
-            footer .footer-content { grid-template-columns: 1fr; text-align: center; justify-items: center; }
-            footer .logo { justify-content: center; }
-            footer .footer-social { justify-content: center; }
-            footer .footer-contact li { justify-content: center; }
-            footer .footer-column h3:after { left: 50%; transform: translateX(-50%); }
-        }
-    </style>
     <style>
         /* CSS Variables */
         :root {
@@ -245,9 +235,50 @@
             color: var(--primary);
         }
 
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 999;
+            padding: 100px 30px 30px;
+            transform: translateX(-100%);
+            transition: var(--transition);
+            overflow-y: auto;
+            pointer-events: none;
+            opacity: 0;
+        }
 
+        .mobile-menu.active {
+            transform: translateX(0);
+            pointer-events: auto;
+            opacity: 1;
+        }
 
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--dark);
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.05);
+        }
 
+        .close-menu:hover {
+            background: rgba(0, 0, 0, 0.1);
+            color: var(--primary);
+        }
 
         .mobile-links {
             list-style: none;
@@ -368,6 +399,8 @@
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 2s infinite;
+            z-index: 10;
+            cursor: pointer;
         }
 
         .scroll-down a {
@@ -377,6 +410,12 @@
             flex-direction: column;
             align-items: center;
             font-size: 0.9rem;
+            padding: 10px;
+        }
+
+        .scroll-down a i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
         }
 
         @keyframes bounce {
@@ -988,6 +1027,17 @@
         }
 
         @media (max-width: 768px) {
+            /* Fix hero section for mobile scroll */
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                background-attachment: scroll;
+            }
+            
+            .slide-content {
+                padding: 80px 20px 60px;
+            }
+            
             .slide-content h1 {
                 font-size: 2.2rem;
             }
@@ -1012,6 +1062,12 @@
             
             .logo-img {
                 height: 40px;
+            }
+            
+            .scroll-down {
+                position: relative;
+                bottom: auto;
+                margin-top: 40px;
             }
             
             /* Footer Mobile Center Alignment */
@@ -1112,14 +1168,14 @@
                     <li><a href="homepage2.html">Home page2</a></li>
                 </ul>
             </li>
-                    <li><a href="file:///E:/it-solution-website/about-v2.html">About Us</a></li>
-                    <li><a href="file:///E:/it-solution-website/services-v2.html">Services</a></li>
-                    <li><a href="file:///E:/it-solution-website/projects-v2.html">Projects</a></li>
-                    <li><a href="file:///E:/it-solution-website/career-v2.html">Career</a></li>
-                    <li><a href="file:///E:/it-solution-website/hr-employers-v2.html">HR Employers</a></li>
-                    <li><a href="file:///E:/it-solution-website/contact-v2.html">Contact Us</a></li>
-                    <li><a href="file:///E:/it-solution-website/dashboard-v2.html">Dashboard</a></li>
-                    <li><a href="file:///E:/it-solution-website/login-v2.html">Login/Signup</a></li>
+            <li><a href="about-v2.html">About Us</a></li>
+            <li><a href="services-v2.html">Services</a></li>
+            <li><a href="projects-v2.html">Projects</a></li>
+            <li><a href="career-v2.html">Career</a></li>
+            <li><a href="hr-employers-v2.html">HR Employers</a></li>
+            <li><a href="contact-v2.html">Contact Us</a></li>
+            <li><a href="dashboard-v2.html">Dashboard</a></li>
+            <li><a href="login-v2.html">Login/Signup</a></li>
         </ul>
     </div>
 
@@ -1132,7 +1188,7 @@
                     <p>Empowering enterprises with next-generation IT infrastructure, cloud computing, and digital transformation services. Experience the future of technology today.</p>
                     <div class="hero-buttons">
                         <a href="#about" class="btn">Discover More</a>
-                        <a href="E:\it-solution-website\404homepage2.html" class="btn btn-outline">Get Started</a>
+                        <a href="contact-v2.html" class="btn btn-outline">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -1414,7 +1470,7 @@
                     </div>
                     <div class="testimonial-author">
                         <div class="author-image">
-                            <img src="images/client1.jpg" alt="Client">
+                            <img src="images/chairman.webp" alt="Client">
                         </div>
                         <div class="author-info">
                             <h4>Robert Brown</h4>
@@ -1443,7 +1499,7 @@
             <div class="blog-grid">
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="images/blog1.jpg" alt="Blog Post">
+                        <img src="Picflow Images Nov 24/Web Design Trends for 2023.webp" alt="Blog Post">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1458,7 +1514,7 @@
                 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="images/blog2.jpg" alt="Blog Post">
+                        <img src="Picflow Images Nov 24/it-professionals-analyzing-real-time-data-control-room.webp" alt="Blog Post">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1473,7 +1529,7 @@
                 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="images/blog3.jpg" alt="Blog Post">
+                <img src="Picflow Images Nov 24/Cloud-Migration-blog.webp" alt="Blog Post">
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1595,6 +1651,15 @@
             });
         });
 
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-menu a').forEach(a => {
+            a.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                document.body.style.overflow = '';
+            });
+        });
+
         // Header Scroll Effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
@@ -1602,6 +1667,54 @@
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
+            }
+        });
+
+        // Fixed Scroll Down Functionality
+        function scrollToSection(targetId) {
+            const target = document.querySelector(targetId);
+            if (target) {
+                const header = document.querySelector('header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                
+                // Calculate the target position
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                // Scroll to the target
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Add event listeners for scroll down functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll down button in hero section
+            const scrollDownLink = document.querySelector('.scroll-down a');
+            if (scrollDownLink) {
+                scrollDownLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    // Close mobile menu if open
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                        document.body.style.overflow = '';
+                    }
+                    
+                    // Scroll to about section
+                    scrollToSection(scrollDownLink.getAttribute('href'));
+                });
+            }
+            
+            // Also handle the "Discover More" button in hero section
+            const discoverMoreBtn = document.querySelector('.hero-buttons .btn[href="#about"]');
+            if (discoverMoreBtn) {
+                discoverMoreBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    scrollToSection(discoverMoreBtn.getAttribute('href'));
+                });
             }
         });
 
@@ -1680,6 +1793,5 @@
             });
         });
     </script>
-    <script src="css/js/mobile-menu.js"></script>
 </body>
 </html>

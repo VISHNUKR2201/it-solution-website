@@ -280,10 +280,14 @@
             transform: translateX(-100%);
             transition: var(--transition);
             overflow-y: auto;
+            pointer-events: none;
+            opacity: 0;
         }
 
         .mobile-menu.active {
             transform: translateX(0);
+            pointer-events: auto;
+            opacity: 1;
         }
 
         .close-menu {
@@ -427,7 +431,12 @@
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 2s infinite;
+            z-index: 2001;
+            cursor: pointer;
+            pointer-events: auto;
         }
+
+        #about { scroll-margin-top: 80px; }
 
         .scroll-down a {
             color: white;
@@ -436,6 +445,13 @@
             flex-direction: column;
             align-items: center;
             font-size: 0.9rem;
+            padding: 10px;
+            pointer-events: auto;
+        }
+
+        .scroll-down a i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
         }
 
         @keyframes bounce {
@@ -1339,12 +1355,23 @@
         }
 
         @media (max-width: 768px) {
+            /* Fix hero section for mobile scroll */
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                background-attachment: scroll;
+            }
+            
             section {
                 padding: 40px 0;
             }
             
             .section-title {
                 margin-bottom: 30px;
+            }
+            
+            .slide-content {
+                padding: 80px 20px 60px;
             }
             
             .slide-content h1 {
@@ -1376,6 +1403,12 @@
             
             .logo-img {
                 height: 40px;
+            }
+            
+            .scroll-down {
+                position: relative;
+                bottom: auto;
+                margin-top: 40px;
             }
             
             /* Footer Mobile Center Alignment */
@@ -1472,7 +1505,7 @@
         </div>
     </header>
 
-    <!-- Mobile Menu -->
+   <!-- Mobile Menu -->
     <div class="mobile-menu">
         <div class="close-menu">✕</div>
         <ul class="mobile-links">
@@ -1900,12 +1933,33 @@
             });
         }
 
+        // Fixed mobile dropdown functionality
         mobileDropdowns.forEach(item => {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation(); // Prevent event bubbling
                 const parent = item.parentElement;
                 parent.classList.toggle('active');
             });
+        });
+
+        // Close mobile menu when clicking on non-dropdown links
+        document.querySelectorAll('.mobile-menu a').forEach(a => {
+            if (!a.classList.contains('mobile-dropdown-toggle')) {
+                a.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 992 && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                document.body.style.overflow = '';
+            }
         });
 
         // Header Scroll Effect
@@ -1918,16 +1972,53 @@
             }
         });
 
-        const scrollLink = document.querySelector('.scroll-down a');
-        if (scrollLink) {
-            scrollLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(scrollLink.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+        // Fixed Scroll Down Functionality
+        function scrollToSection(targetId) {
+            const target = document.querySelector(targetId);
+            if (target) {
+                const header = document.querySelector('header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                
+                // Calculate the target position
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                // Scroll to the target
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
+
+        // Add event listeners for scroll down functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll down button in hero section
+            const scrollDownLink = document.querySelector('.scroll-down a');
+            if (scrollDownLink) {
+                scrollDownLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    // Close mobile menu if open
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                        document.body.style.overflow = '';
+                    }
+                    
+                    // Scroll to about section
+                    scrollToSection(scrollDownLink.getAttribute('href'));
+                });
+            }
+            
+            // Also handle the "Read More" button in hero section
+            const readMoreBtn = document.querySelector('.hero-buttons .btn[href="#about"]');
+            if (readMoreBtn) {
+                readMoreBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    scrollToSection(readMoreBtn.getAttribute('href'));
+                });
+            }
+        });
 
         // Particle Animation
         function createParticles() {
@@ -2036,6 +2127,5 @@
             });
         });
     </script>
-    <script src="css/js/mobile-menu.js"></script>
 </body>
 </html>

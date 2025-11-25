@@ -51,10 +51,14 @@ header {
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     overflow-y: auto !important;
     padding: 60px 20px 20px !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
 }
 
 .mobile-menu.active {
     transform: translateX(0) !important;
+    pointer-events: auto !important;
+    opacity: 1 !important;
 }
 
 .mobile-menu.active .close-menu {
