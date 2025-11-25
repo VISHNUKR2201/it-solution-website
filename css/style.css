@@ -744,6 +744,9 @@ footer {
         left: 50%;
         transform: translateX(-50%);
     }
+    .container, .section-title, .hero .slide-content { text-align: center; }
+    .hero-buttons, .btn-group { justify-content: center; }
+    .btn { margin-left: auto; margin-right: auto; }
 }
 
 /* Mobile Menu */

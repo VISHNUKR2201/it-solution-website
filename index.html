@@ -1409,6 +1409,13 @@
         }
     </style>
     <style>
+        @media (max-width: 992px) {
+            .container, .section-title, .hero .slide-content { text-align: center; }
+            .hero-buttons, .btn-group { justify-content: center; }
+            .btn { margin-left: auto; margin-right: auto; }
+        }
+    </style>
+    <style>
         .header-close-x { display: none; }
         @media (max-width: 992px) {
             body.menu-open .header-close-x {
@@ -1910,6 +1917,17 @@
                 header.classList.remove('scrolled');
             }
         });
+
+        const scrollLink = document.querySelector('.scroll-down a');
+        if (scrollLink) {
+            scrollLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(scrollLink.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        }
 
         // Particle Animation
         function createParticles() {
