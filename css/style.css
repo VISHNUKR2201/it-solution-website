@@ -770,6 +770,24 @@ footer {
     transform: translateX(0);
 }
 
+/* Mobile footer centering overrides (placed last to win cascade) */
+@media (max-width: 992px) {
+    footer .footer-content {
+        grid-template-columns: 1fr !important;
+        justify-items: center !important;
+        text-align: center !important;
+    }
+    footer .footer-column { text-align: center !important; }
+    footer .logo { display: flex !important; justify-content: center !important; align-items: center !important; }
+    footer .logo img { display: block !important; margin: 0 auto !important; }
+    footer .footer-social { justify-content: center !important; }
+    footer .footer-contact { justify-content: center !important; }
+    footer .footer-contact li { justify-content: center !important; }
+    footer .footer-links { text-align: center !important; }
+    footer .footer-links a { display: inline-block !important; }
+    footer .footer-column h3:after { left: 50% !important; transform: translateX(-50%) !important; }
+}
+
 .mobile-links {
     display: flex;
     flex-direction: column;
